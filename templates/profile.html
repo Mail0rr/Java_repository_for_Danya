@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+	<div class="flex justify-center items-center min-h-[30vh]">
+        <div class="bg-white text-gray-800 p-8 rounded-3xl shadow-2xl w-[48rem] border border-gray-200">
+            <div class="pb-6 border-b border-gray-200">
+                <div class="flex items-center gap-4">
+                    <div class="h-32 w-32 rounded-full bg-gray-200 overflow-hidden">
+                        <img src="https://via.placeholder.com/80" alt="Аватар пользователя" class="h-full w-full object-cover">
+                    </div>
+                    <div class="space-y-1">
+                        <h2 class="text-3xl font-bold text-gray-800">*Имя пользователя*</h2>
+                        <div class="text-xl text-gray-500 space-y-1">
+                            <p>Дата регистрации: *Дата регистрации*</p>
+                            <p>Последняя активность: *Последняя активность*</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6">
+                <div class="text-center text-gray-500 py-8">
+                    <p class="text-lg">Здесь будут темы Java</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
