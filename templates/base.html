@@ -9,20 +9,20 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body class="bg-gray-50 text-white flex flex-col min-h-screen">
-    <header class="bg-blue-700 text-white py-6 px-9 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
+<body class="bg-slate-700 text-white flex flex-col min-h-screen">
+    <header class="bg-gray-900 text-white py-6 px-9 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
         <div class="flex items-center gap-10">
             <a href="/" class="text-4xl font-bold">Java learning</a>
             <nav>
                 <ul class="flex gap-6 items-center">
                     <li class="relative group">
-                        <a href="/topics" class="flex items-center gap-2 text-2xl hover:text-gray-800">
+                        <a href="/topics" class="flex items-center gap-2 text-2xl hover:text-yellow-400">
                             <img src="{{ url_for('static', filename='img/list.png') }}" alt="Menu" class="w-7 h-7">
                             Reviews
                         </a>
                     </li>
                     <li>
-                        <a href="/authors" class="flex items-center gap-2 text-2xl hover:text-gray-800">
+                        <a href="/authors" class="flex items-center gap-2 text-2xl hover:text-yellow-400">
                             <img src="{{ url_for('static', filename='img/authors.png') }}" alt="Cart" class="w-7 h-7">
                             Authors
                         </a>
@@ -31,7 +31,7 @@
             </nav>
         </div>
         <div>
-            <a href="/profile" class="flex items-center gap-2 text-2xl hover:text-gray-800 transition-colors duration-200">
+            <a href="/profile" class="flex items-center gap-2 text-2xl hover:text-yellow-400 transition-colors duration-200">
                 <span>Profile</span>
                 <img src="{{ url_for('static', filename='img/profile.png') }}" alt="Profile" class="w-7 h-7">
             </a>
