@@ -11,11 +11,16 @@
                         <img src="https://via.placeholder.com/80" alt="Аватар пользователя" class="h-full w-full object-cover">
                     </div>
                     <div class="space-y-1">
-                        <h2 class="text-3xl font-bold text-white">*Имя пользователя*</h2>
-                        <div class="text-xl text-gray-300 space-y-1">
+                        <h2 class="text-lg font-bold text-white">*Имя пользователя*</h2>
+                        <div class="text-sm text-gray-300 space-y-1">
                             <p>Дата регистрации: *Дата регистрации*</p>
                             <p>Последняя активность: *Последняя активность*</p>
                         </div>
+                    </div>
+                    <div class="ml-auto">
+                        <a href="/profile-settings/" class="bg-amber-600 hover:bg-amber-700 text-white px-12 py-2 rounded-lg transition-colors inline-block">
+                            Edit Profile
+                        </a>
                     </div>
                 </div>
             </div>
@@ -48,11 +53,254 @@
             </div>
         </div>
 
-            <div class="pt-6">
-                <div class="text-center text-gray-300 py-8">
-                    <p class="text-lg">Здесь будут темы Java</p>
+        <div class="pt-6">
+                <div class="text-white py-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold">Темы Java</h3>
+                        <button id="toggleTopics" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded-lg transition-colors">
+                            Скрыть
+                        </button>
+                    </div>
+
+                    <div id="topicsContainer" class="grid gap-3">
+                        <!-- Необходимые темы (Need) -->
+                        {% for topic in [
+                            {'necessity': 'Need', 'main_topic': 'Java Basics Extended', 'sub_topic': 'Type Casting', 'java_id': 1},
+                            {'necessity': 'Need', 'main_topic': 'Java Basics Extended', 'sub_topic': 'Arrays Extended', 'java_id': 2},
+                            {'necessity': 'Need', 'main_topic': 'Java Basics Extended', 'sub_topic': 'Switch Case', 'java_id': 3},
+                            {'necessity': 'Need', 'main_topic': 'Java Basics Extended', 'sub_topic': 'Classes', 'java_id': 4},
+                            {'necessity': 'Need', 'main_topic': 'Java Basics Extended', 'sub_topic': 'Classes Advanced', 'java_id': 5},
+                            {'necessity': 'Need', 'main_topic': 'Java Basics Extended', 'sub_topic': 'Methods Advanced', 'java_id': 6},
+                            {'necessity': 'Need', 'main_topic': 'Java Basics Extended', 'sub_topic': 'Practice', 'java_id': 7},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'How to Solve Tasks', 'java_id': 8},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Memory, Wrappers, String', 'java_id': 9},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Bit Manipulation', 'java_id': 10},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'OOP', 'java_id': 11},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Abstract Class vs. Interface', 'java_id': 12},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Exception', 'java_id': 13},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Files', 'java_id': 14},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Equals, Hashcode, and Clone', 'java_id': 15},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Patterns and Recursion', 'java_id': 16},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Generics', 'java_id': 17},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'ArrayList', 'java_id': 18},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'LinkedList', 'java_id': 19},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'PECS', 'java_id': 20},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'HashMap', 'java_id': 21},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Array Practice', 'java_id': 22},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Immutable', 'java_id': 23},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Set, Queue, Stack, and Comparator', 'java_id': 24},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Java JUnit', 'java_id': 25},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Java 8 — Part 1', 'java_id': 26},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Java 8 — Part 2', 'java_id': 27},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Java 8 — Part 3', 'java_id': 28},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Java 9-19 Improvements', 'java_id': 29},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Stream API Practice', 'java_id': 30},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Java SOLID', 'java_id': 31},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Java Dependency Injection', 'java_id': 32},
+                            {'necessity': 'Need', 'main_topic': 'Java Core', 'sub_topic': 'Logger', 'java_id': 33},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'Database Intro', 'java_id': 34},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'JDBC Intro', 'java_id': 35},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'Hibernate Entities and Transactions', 'java_id': 36},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'Entity Relations and Life Cycle', 'java_id': 37},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'JPA and Cascade Types', 'java_id': 38},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'Working With Lazy Initialization', 'java_id': 39},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'Criteria API', 'java_id': 40},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'Transaction Isolation Levels', 'java_id': 41},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'N+1 Problem', 'java_id': 42},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'Database Change Management Tools', 'java_id': 43},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'SQL Practice', 'java_id': 44},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'Hibernate Inheritance', 'java_id': 45},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'Hibernate Cache Levels', 'java_id': 46},
+                            {'necessity': 'Need', 'main_topic': 'Hibernate', 'sub_topic': 'Performance Improvement', 'java_id': 47},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Boot Intro', 'java_id': 48},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Bean Lifecycle', 'java_id': 49},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Boot Web', 'java_id': 50},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Boot Web: DTO', 'java_id': 51},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Boot Web: Mappers in Details', 'java_id': 52},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Data JPA', 'java_id': 53},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Criteria Query in Spring Boot', 'java_id': 54},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Transactional', 'java_id': 55},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'GlobalExceptionHandler and Data Validation', 'java_id': 56},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Pagination, Sorting, Swagger', 'java_id': 57},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Working With Third-Party API', 'java_id': 58},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Security Basics', 'java_id': 59},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Boot Security', 'java_id': 60},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'JWT', 'java_id': 61},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Boot Practice', 'java_id': 62},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Docker in Spring Boot', 'java_id': 63},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Boot Testing', 'java_id': 64},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Deploy the Project to AWS', 'java_id': 65},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Spring Boot AOP', 'java_id': 66},
+                            {'necessity': 'Need', 'main_topic': 'Spring Boot', 'sub_topic': 'Portfolio Project', 'java_id': 67}
+                        ] %}
+                            <div class="topic-item bg-gray-800 p-3 rounded-lg flex items-center justify-between">
+                                <div>
+                                    <span class="font-medium text-yellow-400">{{ topic.main_topic }}:</span>
+                                    <span class="text-white">{{ topic.sub_topic }}</span>
+                                </div>
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only topic-checkbox" data-topic-id="{{ topic.java_id }}">
+                                    <div class="relative w-6 h-6 bg-gray-700 rounded-md border border-gray-600 flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-yellow-400 opacity-0 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                </label>
+                            </div>
+                        {% endfor %}
+
+                        <!-- Темы с меткой "Repeat" -->
+                        {% for topic in [
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'Introduction to SQL', 'java_id': 68},
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'SELECT Statement', 'java_id': 69},
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'WHERE Clause', 'java_id': 70},
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'NULL Value, LIKE, BETWEEN, and IN Operators', 'java_id': 71},
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'ORDER BY, LIMIT, DISTINCT Clauses', 'java_id': 72},
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'Aliases', 'java_id': 73},
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'Aggregate Functions', 'java_id': 74},
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'GROUP BY Clause', 'java_id': 75},
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'JOIN Clause', 'java_id': 76},
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'Functions', 'java_id': 77},
+                            {'necessity': 'Repeat', 'main_topic': 'SQL Basics', 'sub_topic': 'HAVING Clause', 'java_id': 78}
+                        ] %}
+                            <div class="topic-item bg-gray-800 p-3 rounded-lg flex items-center justify-between secondary-topic">
+                                <div>
+                                    <span class="font-medium text-green-400">{{ topic.main_topic }}:</span>
+                                    <span class="text-gray-400">{{ topic.sub_topic }}</span>
+                                </div>
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only topic-checkbox" data-topic-id="{{ topic.java_id }}">
+                                    <div class="relative w-6 h-6 bg-gray-700 rounded-md border border-gray-600 flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-green-400 opacity-0 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                </label>
+                            </div>
+                        {% endfor %}
+
+                        <!-- Темы с меткой "Optional" -->
+                        {% for topic in [
+                            {'necessity': 'Optional', 'main_topic': 'How the Web Works', 'sub_topic': 'Introduction to the Web', 'java_id': 79},
+                            {'necessity': 'Optional', 'main_topic': 'How the Web Works', 'sub_topic': 'OSI Model', 'java_id': 80},
+                            {'necessity': 'Optional', 'main_topic': 'How the Web Works', 'sub_topic': 'HTTP', 'java_id': 81},
+                            {'necessity': 'Optional', 'main_topic': 'How the Web Works', 'sub_topic': 'API Interface', 'java_id': 82},
+                            {'necessity': 'Optional', 'main_topic': 'How the Web Works', 'sub_topic': 'Encryption', 'java_id': 83},
+                            {'necessity': 'Optional', 'main_topic': 'How the Web Works', 'sub_topic': 'Security in the Web', 'java_id': 84},
+                            {'necessity': 'Optional', 'main_topic': 'Java Multithreading', 'sub_topic': 'Multithreading intro', 'java_id': 85},
+                            {'necessity': 'Optional', 'main_topic': 'Java Multithreading', 'sub_topic': 'Threads', 'java_id': 86},
+                            {'necessity': 'Optional', 'main_topic': 'Java Multithreading', 'sub_topic': 'JMM (Java Memory Model)', 'java_id': 87},
+                            {'necessity': 'Optional', 'main_topic': 'Java Multithreading', 'sub_topic': 'Thread manipulation', 'java_id': 88},
+                            {'necessity': 'Optional', 'main_topic': 'Java Multithreading', 'sub_topic': 'Locks', 'java_id': 89},
+                            {'necessity': 'Optional', 'main_topic': 'Java Multithreading', 'sub_topic': 'Deadlock', 'java_id': 90},
+                            {'necessity': 'Optional', 'main_topic': 'Java Multithreading', 'sub_topic': 'ExecutorService and Future', 'java_id': 91},
+                            {'necessity': 'Optional', 'main_topic': 'Java Multithreading', 'sub_topic': 'CompletableFuture', 'java_id': 92},
+                            {'necessity': 'Optional', 'main_topic': 'Java Multithreading', 'sub_topic': 'Concurrent collections', 'java_id': 93},
+                            {'necessity': 'Optional', 'main_topic': 'Kotlin', 'sub_topic': 'Kotlin Intro', 'java_id': 94},
+                            {'necessity': 'Optional', 'main_topic': 'Kotlin', 'sub_topic': 'Variables, Data Types, and Operators', 'java_id': 95},
+                            {'necessity': 'Optional', 'main_topic': 'Kotlin', 'sub_topic': 'Nullability', 'java_id': 96},
+                            {'necessity': 'Optional', 'main_topic': 'Kotlin', 'sub_topic': 'Functions', 'java_id': 97},
+                            {'necessity': 'Optional', 'main_topic': 'Kotlin', 'sub_topic': 'Collections, Conditionals, and Loops', 'java_id': 98},
+                            {'necessity': 'Optional', 'main_topic': 'Kotlin', 'sub_topic': 'Classes (OOP)', 'java_id': 99},
+                            {'necessity': 'Optional', 'main_topic': 'Kotlin', 'sub_topic': 'Classes (Advanced)', 'java_id': 100},
+                            {'necessity': 'Optional', 'main_topic': 'Kotlin', 'sub_topic': 'Extensions', 'java_id': 101},
+                            {'necessity': 'Optional', 'main_topic': 'Kotlin', 'sub_topic': 'Exceptions and Files', 'java_id': 102},
+                            {'necessity': 'Optional', 'main_topic': 'Kotlin', 'sub_topic': 'Standard Functions and Other Concepts', 'java_id': 103},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Module Overview', 'java_id': 104},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Algorithms complexity', 'java_id': 105},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Arrays', 'java_id': 106},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Binary search', 'java_id': 107},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Two pointers', 'java_id': 108},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Linked lists', 'java_id': 109},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Stack', 'java_id': 110},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Queue', 'java_id': 111},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Trees', 'java_id': 112},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Binary search tree', 'java_id': 113},
+                            {'necessity': 'Optional', 'main_topic': 'Algorithms and Data Structure', 'sub_topic': 'Priority queue', 'java_id': 114},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Environment Setup', 'java_id': 115},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'HTML Basics', 'java_id':  115},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'HTML Basics', 'java_id': 116},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'CSS Basics', 'java_id': 117},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Colors and Fonts', 'java_id': 118},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Box Model Basics', 'java_id': 119},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Semantic Basics', 'java_id': 120},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Responsiveness Basics', 'java_id': 121},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'CSS Selectors', 'java_id': 122},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Pseudo-Elements and Pseudo-Classes', 'java_id': 123},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Specificity', 'java_id': 124},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Links and URLs', 'java_id': 125},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Images', 'java_id': 126},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Media Queries', 'java_id': 127},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Forms', 'java_id': 128},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Position', 'java_id': 129},
+                            {'necessity': 'Optional', 'main_topic': 'HTML + CSS Basics', 'sub_topic': 'Extra Topics', 'java_id': 130}
+                        ] %}
+                            <div class="topic-item bg-gray-800 p-3 rounded-lg flex items-center justify-between secondary-topic">
+                                <div>
+                                    <span class="font-medium text-blue-400">{{ topic.main_topic }}:</span>
+                                    <span class="text-gray-400">{{ topic.sub_topic }}</span>
+                                </div>
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only topic-checkbox" data-topic-id="{{ topic.java_id }}">
+                                    <div class="relative w-6 h-6 bg-gray-700 rounded-md border border-gray-600 flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-blue-400 opacity-0 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <style>
+        .topic-checkbox:checked + div .check-icon {
+            opacity: 1;
+        }
+
+        .secondary-topic {
+            opacity: 0.8;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleTopics');
+            const topicsContainer = document.getElementById('topicsContainer');
+            let showingAll = true;
+
+            function toggleTopicsVisibility() {
+                const allTopics = document.querySelectorAll('.topic-item');
+
+                if (showingAll) {
+                    allTopics.forEach((topic, index) => {
+                        if (index >= 10) {
+                            topic.style.display = 'none';
+                        }
+                    });
+                    toggleButton.textContent = 'Показать все темы';
+                } else {
+                    allTopics.forEach(topic => {
+                        topic.style.display = 'flex';
+                    });
+                    toggleButton.textContent = 'Скрыть';
+                }
+
+                showingAll = !showingAll;
+            }
+
+            toggleButton.addEventListener('click', toggleTopicsVisibility);
+
+            const checkboxes = document.querySelectorAll('.topic-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const topicId = this.getAttribute('data-topic-id');
+                    console.log(`Тема ${topicId} отмечена: ${this.checked}`);
+                });
+            });
+        });
+    </script>
 {% endblock %}
