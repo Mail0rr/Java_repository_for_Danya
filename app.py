@@ -53,6 +53,11 @@ def profile_username():
     return render_template('profile-username.html')
 
 
+@app.route('/update-avatar/')
+def profile_avatar():
+    return render_template('profile-avatar.html')
+
+
 @app.post('/update-username/')
 def update_username():
     username = request.form.get('username')
@@ -61,31 +66,10 @@ def update_username():
     return redirect(url_for('profile_settings'))
 
 
-@app.route('/update-email/')
-def profile_email():
-    return render_template('profile-email.html')
-
-
-@app.post('/update-email/')
-def update_email():
-    email = request.form.get('email')
-    password = request.form.get('password')
+@app.post('/update-avatar/')
+def update_avatar():
+    avatar = request.form.get('avatar')
     return redirect(url_for('profile_settings'))
-
-
-@app.route('/update-password/')
-def profile_password():
-    return render_template('profile-password.html')
-
-
-@app.post('/update-password/')
-def update_password():
-    current_password = request.form.get('current-password')
-    new_password = request.form.get('new-password')
-    confirm_password = request.form.get('confirm-password')
-
-    return redirect(url_for('profile_settings'))
-
 
 @app.route('/verification/')
 def verification():
